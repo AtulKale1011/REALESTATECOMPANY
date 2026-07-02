@@ -1,7 +1,7 @@
 from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
-from schemas import UserInput
-from predictor import model as prediction_model
+from app.schemas import UserInput
+from app.predictor import model as prediction_model
 import pandas as pd
 
 app = FastAPI()
@@ -13,7 +13,17 @@ def health_check():
 @app.post('/predict')
 def predict(request: UserInput):
 
-    input_data = pd.DataFrame([request])
+    input_data = pd.DataFrame([{
+        "longitude": request.longitude,
+        "latitude": request.latitude,
+        "housing_median_age": request.housing_median_age,
+        "total_rooms": request.total_rooms,
+        "total_bedrooms": request.total_bedrooms,
+        "population": request.population,
+        "households": request.households,
+        "median_income": request.median_income,
+        "ocean_proximity": request.ocean_proximity
+    }])
 
     estimated_prediction = prediction_model.predict(input_data)
 

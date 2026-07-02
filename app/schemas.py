@@ -12,7 +12,7 @@ class UserInput(BaseModel):
 
     @field_validator('ocean_proximity')
     @classmethod
-    def validate_proximity(self, value):
+    def validate_proximity(cls, value):
         value = value.upper()
         valid_proximities = ("NEAR BAY", "<1H OCEAN", "INLAND", "NEAR OCEAN", "ISLAND")
 
