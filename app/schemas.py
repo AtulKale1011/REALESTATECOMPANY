@@ -1,15 +1,14 @@
-from pydantic import BaseModel, field_validator
-
+from pydantic import BaseModel, field_validator, Field
 class UserInput(BaseModel):
     longitude: float
     latitude: float
-    housing_median_age: int
-    total_rooms: int
-    total_bedrooms: int
-    population: int
-    households: int
-    median_income: float
-    median_house_value: int
+    housing_median_age: int = Field(gt=0)
+    total_rooms: int = Field(gt=0)
+    total_bedrooms: int = Field(gt=0)
+    population: int = Field(gt=0)
+    households: int = Field(gt=0)
+    median_income: float = Field(gt=0)
+    median_house_value: int = Field(gt=0)
     ocean_proximity: str
 
     @field_validator('ocean_proximity')
