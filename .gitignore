@@ -209,3 +209,10 @@ __marimo__/
 
 #ide
 .vscode
+
+
+#prediction model
+app/model/*.pkl
+
+#models
+.pkl
