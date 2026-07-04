@@ -1,7 +1,7 @@
 from fastapi import FastAPI, status
 from fastapi.responses import JSONResponse
 from app.schemas import UserInput
-from app.predictor import model as prediction_model
+from app.predictor import prediction_model
 import pandas as pd
 
 app = FastAPI()
@@ -9,6 +9,7 @@ app = FastAPI()
 @app.get('/')
 def health_check():
     return {"message": "Server is Running..."}, status.HTTP_200_OK
+
 
 @app.post('/predict')
 def predict(request: UserInput):
@@ -30,6 +31,6 @@ def predict(request: UserInput):
     return JSONResponse(
         status_code=200,
         content={
-            "Estimated Housing Price" : float(estimated_prediction[0])
+            "Estimated Housing Price" : float(estimated_prediction)
         }
     )
