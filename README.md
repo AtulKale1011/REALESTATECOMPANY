@@ -78,6 +78,26 @@ Once started, the API will be accessible at: `http://127.0.0.1:8000`
 
 ---
 
+## 🐳 Running with Docker
+
+As an alternative to manual setup, you can build and run the application inside a Docker container. This ensures that the application runs in an isolated environment with all correct package dependencies pre-installed.
+
+### 1. Build the Docker Image
+Navigate to the root directory containing the [Dockerfile](file:///D:/coding/realestatecompany/Dockerfile) and run:
+```bash
+docker build -t real-estate-prediction-api .
+```
+
+### 2. Run the Docker Container
+Start the container and map port `8000` of the container to port `8000` on your host machine:
+```bash
+docker run -p 8000:8000 real-estate-prediction-api
+```
+The API will then be available at `http://127.0.0.1:8000`.
+
+---
+
+
 ## 📡 API Endpoints
 
 ### 1. Health Check
