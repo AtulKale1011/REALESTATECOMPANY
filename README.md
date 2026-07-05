@@ -10,7 +10,7 @@ The project is structured with a modular directory layout where the model is ser
 
 ---
 
-## 🛠️ Tech Stack & Dependencies
+## Tech Stack & Dependencies
 
 The project is built using:
 - **Language:** Python
@@ -22,7 +22,7 @@ The project is built using:
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 Here is an overview of the key directories and files in this repository:
 
@@ -39,7 +39,7 @@ Here is an overview of the key directories and files in this repository:
 
 ---
 
-## 🚀 Local Setup & Installation
+## Local Setup & Installation
 
 Follow these steps to clone the repository and run the API service locally:
 
@@ -98,7 +98,7 @@ The API will then be available at `http://127.0.0.1:8000`.
 ---
 
 
-## 📡 API Endpoints
+## API Endpoints
 
 ### 1. Health Check
 Checks if the web server is online and running.
@@ -157,7 +157,7 @@ Predicts the estimated median housing price based on the input housing features.
 
 ---
 
-## 🧪 Testing the API
+## Testing the API
 
 ### Testing with Postman
 1. Create a new request in Postman.
