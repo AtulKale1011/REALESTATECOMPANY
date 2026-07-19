@@ -1,4 +1,4 @@
-from fastapi import FastAPI, status
+from fastapi import FastAPI, status, HTTPException
 from fastapi.responses import JSONResponse
 from app.schemas import UserInput
 from app.predictor import prediction_model
@@ -26,11 +26,18 @@ def predict(request: UserInput):
         "ocean_proximity": request.ocean_proximity
     }])
 
-    estimated_prediction = prediction_model.predict(input_data)
+    try:
+        estimated_prediction = prediction_model.predict(input_data)
 
-    return JSONResponse(
-        status_code=200,
-        content={
-            "Estimated Housing Price" : float(estimated_prediction)
-        }
-    )
+        return JSONResponse(
+            status_code=200,
+            content={
+                "Estimated Housing Price" : float(estimated_prediction)
+            }
+        )
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=e.message
+        )
