@@ -1,9 +1,0 @@
-.git
-.venv
-.gitignore
-__pycache__
-*.ipynb
-datasets/
-README.md
-Dockerfile
-.dockerignore
